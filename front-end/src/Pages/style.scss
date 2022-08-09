@@ -1,0 +1,205 @@
+.main-movies-section {
+  display: flex;
+  flex-flow: row nowrap;
+  .movies-thumbnails {
+    width: 100%;
+  }
+}
+
+.about {
+  .about-heading {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+      url("../Assets/Images/bg/about.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 300px;
+    h1 {
+      color: white;
+      font-size: 2.2em;
+    }
+  }
+
+  .main-about-section {
+    h2 {
+      color: var(--primary-color);
+      text-align: center;
+    }
+    .row {
+      width: 80%;
+      margin: 0 auto;
+      padding: 30px;
+      text-align: center;
+    }
+    .who-we-are {
+      h2 {
+        font-size: 2em;
+        margin-bottom: 10px;
+      }
+      p {
+        padding: 40px;
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)
+          ),
+          url("../Assets/Images/bg/about.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        font-size: 20px;
+        line-height: 40px;
+        color: white;
+        border-radius: 10px;
+      }
+    }
+    .our-mission {
+      padding: 10px;
+      p {
+        font-size: 20px;
+        line-height: 40px;
+        border-radius: 10px;
+      }
+    }
+    .founded-on {
+      padding: 40px;
+      background-color: rgb(224, 224, 224);
+      border: 1px solid var(--primary-color);
+      border-radius: 5px;
+    }
+  }
+}
+
+.contact {
+  .contact-heading {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+      url("../Assets/Images/bg/contact.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 300px;
+    h1 {
+      color: white;
+      font-size: 2.2em;
+    }
+  }
+
+  .main-contact-section {
+    h2 {
+      color: var(--primary-color);
+      text-align: center;
+      padding: 10px;
+    }
+    #contact {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-evenly;
+      text-align: center;
+      width: 100%;
+      #form {
+        margin: 10px;
+        input {
+          margin: 10px;
+          padding: 10px;
+          width: 90%;
+          border: none;
+          border-bottom: 1px solid var(--primary-color);
+          outline: none;
+          color: black;
+        }
+        textarea {
+          margin: 5px;
+          padding: 10px;
+          width: 90%;
+          color: black;
+          height: 80px;
+          border: none;
+          border-bottom: 1px solid var(--primary-color);
+          outline: none;
+        }
+        #button {
+          background: var(--primary-color);
+          height: 40px;
+          cursor: pointer;
+          border: none;
+          color: white;
+          font-weight: bold;
+          letter-spacing: 0.5em;
+          &:hover {
+            background: var(--secondary-color);
+          }
+        }
+      }
+      #social {
+        margin: 10px;
+        display: inline-block;
+        ul {
+          li {
+            list-style: none;
+            text-align: center;
+            a {
+              text-decoration: none;
+              color: white;
+              font-weight: bold;
+              letter-spacing: 0.3em;
+              padding: 15px 10px 15px 10px;
+              width: 400px;
+              margin: 30px;
+              display: block;
+            }
+          }
+        }
+      }
+    }
+    iframe {
+      margin: 20px 0px;
+      width: 70vw !important;
+    }
+  }
+}
+
+.loginContainer {
+  width: 60vw;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: rgb(224, 224, 224);
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  text-align: center;
+  h1 {
+    color: var(--primary-color);
+    padding: 15px;
+  }
+  input {
+    margin: 10px;
+    padding: 10px;
+    width: 80%;
+    border: none;
+    border-bottom: 1px solid var(--primary-color);
+    outline: none;
+    color: black;
+    border-radius: 5px;
+  }
+  input[type="submit"] {
+    background: var(--primary-color);
+    height: 40px;
+    cursor: pointer;
+    border: none;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 0.5em;
+    &:hover {
+      background: var(--secondary-color);
+    }
+  }
+}

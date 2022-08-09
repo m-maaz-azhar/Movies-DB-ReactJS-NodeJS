@@ -1,0 +1,82 @@
+.details {
+  .row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 95%;
+    margin: 0 auto;
+    padding: 10px;
+    img {
+      height: 600px;
+      margin: 10px;
+      padding: 5px;
+      border: 1px solid grey;
+      background-color: ivory;
+    }
+  }
+  h1 {
+    color: var(--primary-color);
+    padding: 10px;
+  }
+  ul {
+    li {
+      list-style-type: none;
+      padding: 10px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    }
+  }
+  .trailer {
+    iframe {
+      width: 600px;
+    }
+  }
+}
+.story-line,
+.cast {
+  width: 95%;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+}
+.review {
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  h2 {
+    color: var(--primary-color);
+  }
+  textarea {
+    width: 70%;
+    height: 100px;
+    padding: 10px;
+    margin: 10px;
+    outline: 1px solid var(--primary-color);
+    border: none;
+  }
+  button {
+    width: 150px;
+    height: 35px;
+    cursor: pointer;
+    margin-top: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    outline: none;
+    border: none;
+    &:hover {
+      background-color: var(--secondary-color);
+    }
+  }
+  button[disabled] {
+    background-color: grey;
+    color: white;
+    cursor: not-allowed;
+  }
+  .comment {
+    border: 1px solid var(--primary-color);
+    border-radius: 6px;
+    padding: 10px;
+    width: fit-content;
+    margin: 10px auto;
+
+  }
+}

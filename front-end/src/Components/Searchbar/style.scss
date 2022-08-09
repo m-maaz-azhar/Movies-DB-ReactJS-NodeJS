@@ -1,0 +1,29 @@
+.search-bar {
+  width: 100%;
+  text-align: center;
+  margin: 20px 10px;
+  input {
+    padding: 10px 15px;
+    width: 80%;
+    margin: 0 auto;
+    outline: none;
+    border: 2px solid white;
+    outline: 1px solid var(--primary-color);
+    border-radius: 5px 0 0 5px;
+    &:focus {
+      border: 2px solid var(--primary-color);
+    }
+  }
+  button {
+    padding: 13px 15px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: white;
+    outline: none;
+    border: none;
+    &:hover {
+      background-color: var(--secondary-color);
+    }
+  }
+}

@@ -1,0 +1,17 @@
+aside {
+  background-color: #222222;
+  color: white;
+  margin-bottom: -30px;
+  ul {
+    li {
+      list-style-type: none;
+      padding: 20px 40px;
+      text-align: center;
+      border-bottom: 1px solid var(--primary-color);
+      cursor: pointer;
+      &:hover {
+        background-color: var(--primary-color);
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+.thumbnail {
+  margin: 10px;
+  padding: 18px 12px;
+  box-shadow: 0 4px 8px 0 rgba(32, 24, 24, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  border-radius: 5px;
+  .movie-title {
+    color: var(--primary-color);
+    font-size: 15px;
+    padding: 10px 0px;
+  }
+  .tags {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 6px;
+    margin: 20px;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+  .info-btn {
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px 10px 15px;
+    border-radius: 5px;
+  }
+  .info-btn:hover {
+    background-color: var(--secondary-color);
+  }
+  img {
+    transform-origin: 50% 65%;
+    transition: transform 0.5s, filter 0.5s ease-in-out;
+    filter: brightness(150%);
+  }
+  .rating {
+    float: right;
+    padding: 5px;
+    i {
+      color: #f5c518;
+      margin: 0px 5px;
+    }
+  }
+  &:hover {
+    img {
+      filter: brightness(100%);
+      transform: scale(1.1);
+      border-radius: 5px;
+    }
+  }
+}
