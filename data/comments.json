@@ -1,0 +1,25 @@
+[{
+  "_id": {
+    "$oid": "62f207e13e441fb26c1b67a9"
+  },
+  "username": "mmaazazhar",
+  "movieId": "62f140f46075ee6fe0a7e9eb",
+  "comment": "Nice Movie",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62f207f03e441fb26c1b67ab"
+  },
+  "username": "testuser",
+  "movieId": "62f140f46075ee6fe0a7e9eb",
+  "comment": "Average",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62f20bd6daca09a5f18ef8f1"
+  },
+  "username": "mmaazazhar",
+  "movieId": "62f140f46075ee6fe0a7e9eb",
+  "comment": "great direction",
+  "__v": 0
+}]
