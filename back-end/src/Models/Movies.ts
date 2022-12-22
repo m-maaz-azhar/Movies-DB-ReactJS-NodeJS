@@ -1,7 +1,7 @@
-let mongoose = require("mongoose");
-let Schema = mongoose.Schema;
+import { Schema, model } from "mongoose";
+import IMovies from "../Interfaces/IMovies";
 
-var moviesSchema = new Schema({
+const moviesSchema = new Schema<IMovies>({
   title: String,
   initial_release: String,
   director: String,
@@ -15,4 +15,4 @@ var moviesSchema = new Schema({
   poster: String,
 });
 
-module.exports = mongoose.model("movies", moviesSchema);
+export default model<IMovies>("movies", moviesSchema);
