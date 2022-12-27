@@ -1,8 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
-import morgan from "morgan";
-
+import Log from "./Logs";
 import { ConnectDB } from "./Config";
 import MoviesController from "./Controllers/MoviesController";
 import UserController from "./Controllers/UserController";
@@ -13,7 +12,7 @@ let app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use(morgan("dev"));
+app.use(Log);
 ConnectDB();
 
 app.get("/movies", async (req: any, res) => {
@@ -22,29 +21,29 @@ app.get("/movies", async (req: any, res) => {
   res.json(response);
 });
 
-app.get("/moviebyid", (req: any, res) => {
-  const MoviesInstance = new MoviesController();
+app.get("/moviebyid", async (req: any, res) => {
   const id: string = req.query.id;
-  const response = MoviesInstance.getMoviebyid(id);
-  res.json(response);
-});
-
-app.get("/moviebygenre", (req: any, res) => {
   const MoviesInstance = new MoviesController();
+  const response = await MoviesInstance.getMoviebyid(id);
+  res.json(response);
+});
+
+app.get("/moviebygenre", async (req: any, res) => {
   const genre: string = req.query.genre;
-  const response = MoviesInstance.getMoviesbyGenre(genre);
+  const MoviesInstance = new MoviesController();
+  const response = await MoviesInstance.getMoviesbyGenre(genre);
   res.json(response);
 });
 
-app.post("/login", (req: any, res) => {
+app.post("/login", async (req: any, res) => {
   const UserInstance = new UserController();
-  const response = UserInstance.Login(req.body.username, req.body.password);
+  const response = await UserInstance.Login(req.body.username, req.body.password);
   res.json(response);
 });
 
-app.post("/register", (req: any, res) => {
+app.post("/register", async (req: any, res) => {
   const UserInstance = new UserController();
-  const response = UserInstance.Register(
+  const response = await UserInstance.Register(
     req.body.username,
     req.body.password,
     req.body.email,
@@ -54,15 +53,15 @@ app.post("/register", (req: any, res) => {
   res.json(response);
 });
 
-app.get("/comments", (req: any, res) => {
+app.get("/comments", async (req: any, res) => {
   const CommentsInstance = new CommentsController();
-  const response = CommentsInstance.getAllComments(req.query.id);
+  const response = await CommentsInstance.getAllComments(req.query.id);
   res.json(response);
 });
 
-app.post("/comments", (req, res) => {
+app.post("/comments", async (req, res) => {
   const CommentsInstance = new CommentsController();
-  const response = CommentsInstance.addComment(
+  const response = await CommentsInstance.addComment(
     req.body.username,
     req.body.id,
     req.body.comment
@@ -70,9 +69,9 @@ app.post("/comments", (req, res) => {
   res.json(response);
 });
 
-app.post("/contact", (req, res) => {
+app.post("/contact", async (req, res) => {
   const ContactInstance = new MessagesController();
-  const response = ContactInstance.addMessage(
+  const response = await ContactInstance.addMessage(
     req.body.name,
     req.body.email,
     req.body.phone,

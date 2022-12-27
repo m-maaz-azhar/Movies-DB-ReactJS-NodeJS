@@ -5,30 +5,33 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const Comments_1 = __importDefault(require("../Models/Comments"));
 class CommentsController {
-    constructor() { }
     getAllComments(id) {
-        Comments_1.default.find({ movieId: id }, (err, comments) => {
-            if (err) {
-                return { message: "Error", error: err };
-            }
-            else {
-                return Object.assign({}, comments);
-            }
+        return new Promise((resolve, reject) => {
+            Comments_1.default.find({ movieId: id }, (err, comments) => {
+                if (err) {
+                    reject({ message: "Error", error: err });
+                }
+                else {
+                    resolve(comments);
+                }
+            });
         });
     }
     addComment(username, movieId, comment) {
-        let newComment = new Comments_1.default({
-            username: username,
-            movieId: movieId,
-            comment: comment,
-        });
-        newComment.save((err) => {
-            if (err) {
-                return { message: "Error", error: err };
-            }
-            else {
-                return { success: true, data: newComment };
-            }
+        return new Promise((resolve, reject) => {
+            let newComment = new Comments_1.default({
+                username: username,
+                movieId: movieId,
+                comment: comment,
+            });
+            newComment.save((err) => {
+                if (err) {
+                    reject({ message: "Error", error: err });
+                }
+                else {
+                    resolve({ success: true, data: newComment });
+                }
+            });
         });
     }
 }

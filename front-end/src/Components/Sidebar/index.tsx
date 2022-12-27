@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import "./style.scss";
 
 interface SidebarProps {
@@ -6,6 +5,7 @@ interface SidebarProps {
 }
 
 export default function Sidebar({ setFilter }: SidebarProps) {
+
   const handleClick = (filter: string) => {
     if (filter !== "All") {
       fetch(`http://localhost:8080/moviebygenre?genre=${filter}`)

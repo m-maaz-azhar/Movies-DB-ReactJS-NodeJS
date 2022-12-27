@@ -1,22 +1,19 @@
 import User from "../Models/User";
 
 class UserController {
-  constructor() {}
   Login(username: string, password: string) {
-    User.find(
-      { username: username, password: password },
-      (err: any, user: string[]) => {
-        if (err || user.length === 0) {
-          return {
-            message: "email or password doesn't match!",
-            error: err,
-            success: false,
-          };
-        } else {
-          return { success: true };
+    return new Promise((resolve, reject) => {
+      User.find(
+        { username: username, password: password },
+        (err: any, user: string[]) => {
+          if (err || user.length === 0) {
+            reject({ message: "email or password doesn't match!", error: err });
+          } else {
+            resolve({ success: true });
+          }
         }
-      }
-    );
+      );
+    });
   }
 
   Register(
@@ -26,26 +23,28 @@ class UserController {
     firstName: string,
     lastName: string
   ) {
-    User.find({ username: username }, (err: any, user: string[]) => {
-      if (err || user.length === 0) {
-        let newUser = new User({
-          username: username,
-          password: password,
-          email: email,
-          profile: "",
-          firstName: firstName,
-          lastName: lastName,
-        });
-        newUser.save((err: any) => {
-          if (err) {
-            return { message: "Error", error: err };
-          } else {
-            return { success: true };
-          }
-        });
-      } else {
-        return { message: "Username already exists!", success: false };
-      }
+    return new Promise((resolve, reject) => {
+      User.find({ username: username }, (err: any, user: string[]) => {
+        if (err || user.length === 0) {
+          let newUser = new User({
+            username: username,
+            password: password,
+            email: email,
+            profile: "",
+            firstName: firstName,
+            lastName: lastName,
+          });
+          newUser.save((err: any) => {
+            if (err) {
+              reject({ message: "Error", error: err });
+            } else {
+              resolve({ success: true });
+            }
+          });
+        } else {
+          reject({ message: "Username already exists!", success: false });
+        }
+      });
     });
   }
 }

@@ -53,8 +53,8 @@ export default function Movie() {
       }),
     })
       .then((res) => {
-        res.json().then(({data}) => {
-          console.log(data,Comments)
+        res.json().then(({ data }) => {
+          console.log(data, Comments);
           setComments([...Comments, data]);
           setCommentText("");
         });
@@ -131,7 +131,11 @@ export default function Movie() {
               onChange={(e) => setCommentText(e.target.value)}
             />
             <br />
-            <button onClick={handleComment} disabled={session && CommentText !== "" ? false : true} type="submit">
+            <button
+              onClick={handleComment}
+              disabled={session && CommentText !== "" ? false : true}
+              type="submit"
+            >
               SUBMIT
             </button>
             <br />
